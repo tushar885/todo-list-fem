@@ -6,17 +6,18 @@
 
 @layer base {
   :root {
-    --color-text-base: hsl(231, 33%, 84%);
-    --color-task-pending: hsl(235, 29%, 83%);
+    --color-text-base: hsl(233, 14%, 35%);
+    --color-task-pending: hsl(234, 39%, 85%);
     --color-text-constant: hsl(220, 98%, 61%);
     --color-bg-body: hsl(240, 20%, 12%);
     --color-bg-task: hsl(235, 24%, 19%);
   }
   .theme_light {
+    /* --color-text-typing : hsl(236, 9%, 61%); */
     --color-text-base: hsl(240, 1%, 60%);
-    --color-task-pending: hsl(244, 9%, 36%);
+    --color-task-pending: hsl(235, 19%, 35%);
     --color-text-constant: hsl(220, 98%, 61%);
-    --color-bg-body: hsl(0, 0%, 98%);
-    --color-bg-task: hsl(0, 0%, 100%);
+    --color-bg-body: hsl(236, 33%, 92%);
+    --color-bg-task: hsl(0, 0%, 98%);
   }
 }

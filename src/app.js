@@ -5,7 +5,7 @@ import MainContainer from "./components/MainContainer";
 
 const AppLayout = () => {
   return (
-    <div className="bg-[hsl(240,20%,12%)] min-w-full min-h-screen relative flex items-start p-8 font-Josefin">
+    <div className="bg-skin-bodyContainer min-w-full min-h-screen relative flex items-start p-8 font-Josefin theme_light">
       <BackgroundImg />
       <MainContainer />
     </div>

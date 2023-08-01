@@ -27,6 +27,12 @@ module.exports = {
           baseBorderOrTaskCompleted: "var(--color-text-base)",
         },
       },
+      backgroundImage: {
+        bgd_mob: "url('./images/bg-mobile-dark.jpg')",
+        bgl_mob: "url('./images/bg-mobile-light.jpg')",
+        bgd_desk: "url('./images/bg-desktop-dark.jpg')",
+        bgl_desk: "url('./images/bg-desktop-light.jpg')",
+      },
     },
   },
   plugins: [],

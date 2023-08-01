@@ -20,4 +20,7 @@
     --color-bg-body: hsl(236, 33%, 92%);
     --color-bg-task: hsl(0, 0%, 98%);
   }
+  /* *::-webkit-scrollbar-thumb {
+    background-color: var(--color-text-constant);
+  } */
 }

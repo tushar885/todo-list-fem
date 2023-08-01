@@ -1,13 +1,42 @@
-import React from "react";
-import Status from "./Status";
+import React, { useContext, useState, useEffect } from "react";
 import Filter from "./Filter";
+import ShowContext from "../utils/ShowContext";
+import TaskContext from "../utils/TaskContext";
 
-const Footer = () => {
+const Footer = ({ taskList, setTaskList }) => {
+  const { show, setShow } = useContext(ShowContext);
+
+  const { allTaskList, setAllTaskList } = useContext(TaskContext);
+  // Dont need to use useState for it, because it will get updated when ever allTaskList get updated.
+  let pendingCount = 0;
+  const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+  tasks.forEach((element) => {
+    if (element.status === "pending") pendingCount++;
+  });
+
+  function clearCompleted(e) {
+    const list = tasks.filter((task) => {
+      return task.status !== "completed";
+    });
+    // setAllTaskList(list);
+    localStorage.setItem("tasks", JSON.stringify(list));
+    if (show === "all") {
+      setAllTaskList(list);
+    } else {
+      const temp = list.filter((task) => {
+        return show === task.status;
+      });
+      setAllTaskList(temp);
+    }
+  }
+
   return (
-    <div className="bg-skin-taskContainer text-skin-base text-sm flex px-6 py-4 justify-between gap-8 rounded-b-md relative">
-      <p>5 items left</p>
-      <Filter />
-      <p>Clear Completed</p>
+    <div className="bg-skin-taskContainer border-t-[1px] border-skin-baseBorderOrTaskCompleted text-skin-base text-sm flex px-6 py-4 justify-between items-center gap-8 rounded-b-md relative">
+      <p>{pendingCount} items left</p>
+      <Filter taskList={taskList} setTaskList={setTaskList} />
+      <p onClick={clearCompleted}>
+        <button className="hover:text-skin-taskPending">Clear Completed</button>
+      </p>
     </div>
   );
 };

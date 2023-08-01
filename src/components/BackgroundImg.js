@@ -1,11 +1,24 @@
-import React from "react";
-import backImg from "../../images/bg-mobile-dark.jpg";
+import React, { useContext } from "react";
+import ThemeContext from "../utils/ThemeContext";
+import bg_dark_mobImg from "../../images/bg-mobile-dark.jpg";
+import bg_light_mobImg from "../../images/bg-mobile-light.jpg";
 
 const BackgroundImg = () => {
+  const { theme, setTheme } = useContext(ThemeContext);
   return (
-    <div className="absolute top-0 w-full left-0 right-0">
-      {" "}
-      <img src={backImg} alt="BackGround Image" className="w-full" />{" "}
+    <div
+      className={`absolute top-0 w-full left-0 right-0 ${
+        theme === "light" ? "bg-bgl_mob" : "bg-bgd_mob"
+      } ${
+        theme === "light" ? "sm:bg-bgl_desk" : "sm:bg-bgd_desk"
+      } h-[214px]   bg-no-repeat bg-cover bg-top`}
+    >
+      {/* {" "}
+      <img
+        src={theme === "dark" ? bg_dark_mobImg : bg_light_mobImg}
+        alt="BackGround Image"
+        className="w-full"
+      />{" "} */}
     </div>
   );
 };

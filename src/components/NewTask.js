@@ -18,7 +18,7 @@ const NewTask = ({ taskList, setTaskList }) => {
           { id: uuidv4(), description: str, status: "pending" },
           ...allTaskList,
         ];
-        // setTaskList(list);
+
         setAllTaskList(list);
         localStorage.setItem("tasks", JSON.stringify(list));
         setNewTask("");
@@ -27,9 +27,7 @@ const NewTask = ({ taskList, setTaskList }) => {
         console.log("Can't set a empty task, dumb!");
         setNewTask("");
       }
-      // localStorage;
     }
-    // console.log(e.key);
   }
 
   return (
@@ -42,7 +40,6 @@ const NewTask = ({ taskList, setTaskList }) => {
         minLength={1}
         placeholder="Create a new todo..."
         value={newTask}
-        // onChange={changeHandler}
         onKeyDown={keyDownHandler}
       />
     </div>

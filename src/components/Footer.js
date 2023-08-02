@@ -7,7 +7,7 @@ const Footer = ({ taskList, setTaskList }) => {
   const { show, setShow } = useContext(ShowContext);
 
   const { allTaskList, setAllTaskList } = useContext(TaskContext);
-  // Dont need to use useState for it, because it will get updated when ever allTaskList get updated.
+
   let pendingCount = 0;
   const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
   tasks.forEach((element) => {
@@ -18,7 +18,7 @@ const Footer = ({ taskList, setTaskList }) => {
     const list = tasks.filter((task) => {
       return task.status !== "completed";
     });
-    // setAllTaskList(list);
+
     localStorage.setItem("tasks", JSON.stringify(list));
     if (show === "all") {
       setAllTaskList(list);

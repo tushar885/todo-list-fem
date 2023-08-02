@@ -12,14 +12,7 @@ const BackgroundImg = () => {
       } ${
         theme === "light" ? "sm:bg-bgl_desk" : "sm:bg-bgd_desk"
       } h-[214px]   bg-no-repeat bg-cover bg-top`}
-    >
-      {/* {" "}
-      <img
-        src={theme === "dark" ? bg_dark_mobImg : bg_light_mobImg}
-        alt="BackGround Image"
-        className="w-full"
-      />{" "} */}
-    </div>
+    ></div>
   );
 };
 

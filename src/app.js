@@ -9,7 +9,7 @@ const AppLayout = () => {
   const [taskList, setTaskList] = useState([]);
   const [allTaskList, setAllTaskList] = useState([]);
   const [theme, setTheme] = useState("dark");
-  // const { allTaskList } = useContext(TaskContext);
+
   useEffect(() => {
     console.log("Jackass");
     const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
@@ -30,7 +30,6 @@ const AppLayout = () => {
         </div>
       </TaskContext.Provider>
     </ThemeContext.Provider>
-    // </StrictMode>
   );
 };
 

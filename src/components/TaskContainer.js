@@ -7,13 +7,9 @@ import ListPlaceHolder from "./ListPlaceHolder";
 
 const TaskContainer = ({ taskList, setTaskList }) => {
   const [show, setShow] = useState("all");
-  console.log(show);
   const { allTaskList, setAllTaskList } = useContext(TaskContext);
-  // console.log(setTaskList);
 
   useEffect(() => {
-    console.log("Jackass - TaskContainer");
-    // const filList =
     const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
     if (show === "all") {
       setAllTaskList(tasks);
@@ -23,39 +19,14 @@ const TaskContainer = ({ taskList, setTaskList }) => {
       });
       setAllTaskList(list);
     }
-    // setTaskList(allTaskList);
   }, [show]);
-
-  function dragOverHandler(e) {
-    e.stopPropagation();
-    e.preventDefault();
-    const dragTarget = document.querySelector(".dragTarget");
-    const draggable = document.querySelector(".dragging");
-    if (e.target.classList.contains("task")) {
-      // console.log(e.target);
-      if (dragTarget.lastElementChild === e.target) {
-        // console.log("fdsfda");
-        dragTarget.appendChild(draggable);
-      } else {
-        dragTarget.insertBefore(draggable, e.target);
-        // console.log("kahah");
-      }
-    }
-    // console.log("kuch");
-    // console.log(draggable);
-    // console.log(e.target);
-  }
 
   return (
     <ShowContext.Provider value={{ show, setShow }}>
       <div className="TaskContainer rounded-md bg-skin-taskContainer h-fit">
-        <div
-          className="max-h-[19em] overflow-y-auto sm:scrollbar-thin sm:scrollbar-thumb-skin-hoverBg  sm:scrollbar-thumb-rounded-md"
-          // onDragOver={dragOverHandler}
-        >
+        <div className="max-h-[19em] overflow-y-auto sm:scrollbar-thin sm:scrollbar-thumb-skin-hoverBg  sm:scrollbar-thumb-rounded-md">
           {allTaskList.length > 0 ? (
             allTaskList.map(({ id, description, status }) => {
-              // console.log("Dfndfadsfads");
               return (
                 <Task
                   key={id}
@@ -68,8 +39,6 @@ const TaskContainer = ({ taskList, setTaskList }) => {
               );
             })
           ) : (
-            // <Task data={0} desc={"Add a todo task."} stat={"pending"} />
-
             <ListPlaceHolder
               desc={
                 show === "all"

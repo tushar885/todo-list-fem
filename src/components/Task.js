@@ -76,11 +76,74 @@ const Task = ({ data, desc, stat, taskList, setTaskList }) => {
     // setAllTaskList(list);
   }
 
+  //? Tried to implement, the drag and drop thing, did it, but the ux was terrible to scrapped it.
+
+  // function dragStartHandler(e) {
+  //   console.log("Drag Start Handler");
+  //   // e.target.style.opacity = 0.5;
+  //   // e.target.classList.add("dragging");
+  //   e.target.classList.add("opacity-50");
+  //   dragSrcEl = e.target;
+
+  //   e.dataTransfer.effectAllowed = "move";
+  //   e.dataTransfer.setData("text/html", e.target.innerHTML);
+  // }
+
+  // function dragEndHandler(e) {
+  //   // e.target.style.opacity = 1;
+  //   console.log("Drag End Handler");
+
+  //   e.target.classList.remove("opacity-50");
+  //   const tasksEle = document.querySelectorAll(".task");
+  //   console.log(tasksEle);
+  //   // e.target.classList.remove("dragging");
+  //   tasksEle.forEach((ele) => {
+  //     ele.classList.remove("blur-sm");
+  //   });
+  // }
+
+  // function dragOverHandler(e) {
+  //   e.preventDefault();
+  //   return false;
+  // }
+
+  // function dragEnterHandler(e) {
+  //   // e.stopPropagation();
+  //   console.log("Drag Enter Handler");
+
+  //   e.target.classList.add("blur-[]2px");
+  // }
+  // function dragLeaveHandler(e) {
+  //   // e.stopPropagation();
+  //   console.log("Drag Leave Handler");
+
+  //   e.target.classList.remove("blur-[2px]");
+  // }
+
+  // function dropHandler(e) {
+  //   console.log("Drop Handler");
+
+  //   if (dragSrcEl !== e.target) {
+  //     dragSrcEl.innerHTML = e.target.innerHTML;
+  //     e.target.innerHTML = e.dataTransfer.getData("text/html");
+  //   }
+
+  //   e.stopPropagation(); // stops the browser from redirecting.
+  //   return false;
+  // }
+
   return (
     <div
-      className={` group border-b-[1px] border-b-skin-baseBorderOrTaskCompleted w-full px-6 py-4 outline-none text-skin-taskPending flex justify-between items-center overflow-x-auto gap-4 `}
+      className={`task hover:cursor-pointer op bg-skin-taskContainer group border-b-[1px] border-b-skin-baseBorderOrTaskCompleted w-full px-6 py-4 outline-none text-skin-taskPending flex justify-between items-center overflow-x-auto gap-4 `}
+      // draggable="true"
+      // onDragStart={dragStartHandler}
+      // onDragEnd={dragEndHandler}
+      // onDrop={dropHandler}
+      // onDragEnter={dragEnterHandler}
+      // onDragLeave={dragLeaveHandler}
+      // onDragOver={dragOverHandler}
     >
-      <div className="flex items gap-5">
+      <div className="flex items  gap-5">
         <input
           type="checkbox"
           id={data}
@@ -88,7 +151,12 @@ const Task = ({ data, desc, stat, taskList, setTaskList }) => {
           onChange={checkHandler}
           className="hover:cursor-pointer"
         />
-        <label htmlFor={data} className="leading-5 hover:cursor-pointer">
+        <label
+          htmlFor={data}
+          className={`leading-5 hover:cursor-pointer  ${
+            stat === "completed" ? "line-through text-skin-base" : ""
+          }`}
+        >
           {desc}
         </label>
       </div>

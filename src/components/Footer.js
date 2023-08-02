@@ -35,7 +35,9 @@ const Footer = ({ taskList, setTaskList }) => {
       <p>{pendingCount} items left</p>
       <Filter taskList={taskList} setTaskList={setTaskList} />
       <p onClick={clearCompleted}>
-        <button className="hover:text-skin-taskPending">Clear Completed</button>
+        <button className="hover:text-skin-taskPending ">
+          Clear Completed
+        </button>
       </p>
     </div>
   );

@@ -26,10 +26,33 @@ const TaskContainer = ({ taskList, setTaskList }) => {
     // setTaskList(allTaskList);
   }, [show]);
 
+  function dragOverHandler(e) {
+    e.stopPropagation();
+    e.preventDefault();
+    const dragTarget = document.querySelector(".dragTarget");
+    const draggable = document.querySelector(".dragging");
+    if (e.target.classList.contains("task")) {
+      // console.log(e.target);
+      if (dragTarget.lastElementChild === e.target) {
+        // console.log("fdsfda");
+        dragTarget.appendChild(draggable);
+      } else {
+        dragTarget.insertBefore(draggable, e.target);
+        // console.log("kahah");
+      }
+    }
+    // console.log("kuch");
+    // console.log(draggable);
+    // console.log(e.target);
+  }
+
   return (
     <ShowContext.Provider value={{ show, setShow }}>
       <div className="TaskContainer rounded-md bg-skin-taskContainer h-fit">
-        <div className="max-h-[19em] overflow-y-auto">
+        <div
+          className="max-h-[19em] overflow-y-auto sm:scrollbar-thin sm:scrollbar-thumb-skin-hoverBg  sm:scrollbar-thumb-rounded-md"
+          // onDragOver={dragOverHandler}
+        >
           {allTaskList.length > 0 ? (
             allTaskList.map(({ id, description, status }) => {
               // console.log("Dfndfadsfads");

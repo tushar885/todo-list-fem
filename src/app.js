@@ -21,7 +21,7 @@ const AppLayout = () => {
     <ThemeContext.Provider value={{ theme, setTheme }}>
       <TaskContext.Provider value={{ allTaskList, setAllTaskList }}>
         <div
-          className={`bg-skin-bodyContainer w-full  min-h-screen  relative flex items-start p-8 font-Josefin sm:justify-center ${
+          className={`bg-skin-bodyContainer w-full    min-h-screen  relative flex items-start p-8 font-Josefin sm:justify-center ${
             theme === "light" ? "theme_light" : ""
           }`}
         >

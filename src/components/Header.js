@@ -28,6 +28,7 @@ const Header = () => {
         alt="sun"
         className="mr-0 hover:cursor-pointer"
         onClick={clickHandler}
+        tabIndex={2}
       />
     </div>
   );

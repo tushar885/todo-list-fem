@@ -44,7 +44,7 @@ const TaskContainer = ({ taskList, setTaskList }) => {
                 show === "all"
                   ? "You don't have any tasks logged."
                   : show === "pending"
-                  ? "You don't have any tasks logged that is pending."
+                  ? "You don't have any tasks logged that are pending."
                   : "You don't have any tasks logged that has been completed."
               }
             />
